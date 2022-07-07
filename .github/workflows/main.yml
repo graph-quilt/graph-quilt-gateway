@@ -31,13 +31,6 @@ jobs:
         if: ${{ github.ref != 'refs/heads/master' }}
         run: mvn -B package --file pom.xml
 
-      - name: Run tests with Maven
-        run: mvn -B test --file pom.xml
-      - name: Publish Test Report
-        if: ${{ always() }}
-        uses: scacap/action-surefire-report@v1
-        report_paths: target/surefire-reports
-
       - name: Publish Snapshot to OSS Maven Repository
         if: ${{ github.ref == 'refs/heads/master' }}
         run: mvn -B --batch-mode deploy --file pom.xml
