@@ -10,7 +10,7 @@
 
   <groupId>com.intuit.graphql</groupId>
   <artifactId>graphql-gateway-java</artifactId>
-  <version>1.0.71-SNAPSHOT</version>
+  <version>1.0.0-SNAPSHOT</version>
   <name>graphql-gateway-java</name>
   <description>Graphql Gateway</description>
 
@@ -318,29 +318,11 @@
             </file>
         </activation>
         <properties>
-            <docker.image.name>docker.intuit.com/data-dataportal/intuit-data-api/service/intuit-data-api</docker.image.name>
+            <docker.image.name>graphql-gateway</docker.image.name>
             <docker.image.label>latest</docker.image.label>
         </properties>
         <build>
             <plugins>
-                <plugin>
-                  <groupId>org.codehaus.mojo</groupId>
-                  <artifactId>buildnumber-maven-plugin</artifactId>
-                  <version>1.4</version>
-                  <executions>
-                    <execution>
-                      <phase>validate</phase>
-                    <goals>
-                      <goal>create</goal>
-                    </goals>
-                  </execution>
-                  </executions>
-                  <configuration>
-                    <doCheck>false</doCheck>
-                    <doUpdate>false</doUpdate>
-                    <shortRevisionLength>7</shortRevisionLength>
-                  </configuration>
-                </plugin>
                 <plugin>
                   <artifactId>exec-maven-plugin</artifactId>
                   <groupId>org.codehaus.mojo</groupId>
@@ -391,47 +373,6 @@
                                                 <tag>${docker.image.label}</tag>
                                             </tags>
                                         </build>
-                                    </image>
-                                </images>
-                            </configuration>
-                        </execution>
-                        <execution>
-                            <id>Verify image</id>
-                            <phase>package</phase>
-                            <goals>
-                                <goal>start</goal>
-                            </goals>
-                            <configuration>
-                                <images>
-                                    <image>
-                                        <alias>CPD service image</alias>
-                                        <name>docker.intuit.com/oicp/standard/cpd:0.4.1</name>
-                                        <run>
-                                            <log>
-                                                <enabled>true</enabled>
-                                                <date>default</date>
-                                                <color>cyan</color>
-                                            </log>
-                                            <volumes>
-                                                <bind>
-                                                    <volume>${project.basedir}:/workspace</volume>
-                                                    <volume>/var/run/docker.sock:/var/run/docker.sock</volume>
-                                                </bind>
-                                            </volumes>
-                                            <env>
-                                                <SCAN_SERVER>https://artifactscan.a.intuit.com:8083</SCAN_SERVER>
-                                                <SCAN_USER>${env.SCAN_USER}</SCAN_USER>
-                                                <SCAN_PASSWORD>${env.SCAN_PASSWORD}</SCAN_PASSWORD>
-                                                <DOCKER_USERNAME>${env.DOCKER_USERNAME}</DOCKER_USERNAME>
-                                                <DOCKER_PASSWORD>${env.DOCKER_PASSWORD}</DOCKER_PASSWORD>
-                                            </env>
-                                            <entrypoint>/cpd</entrypoint>
-                                           <cmd>--buildargs ARTIFACT_FILE=${project.build.finalName}.${project.packaging} --buildargs DOCKER_TAGS=${project.version}-${buildNumber} -removelocalbuild=false</cmd>
-                                            <wait>
-                                                <time>1000000</time>
-                                                <exit>0</exit>
-                                            </wait>
-                                        </run>
                                     </image>
                                 </images>
                             </configuration>
