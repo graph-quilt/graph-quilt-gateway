@@ -30,6 +30,9 @@ jobs:
       - name: Build with Maven
         if: ${{ github.ref != 'refs/heads/master' }}
         run: mvn -B package --file pom.xml
+        
+      - name: Test
+        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
 
       - name: Publish Snapshot to OSS Maven Repository
         if: ${{ github.ref == 'refs/heads/master' }}
