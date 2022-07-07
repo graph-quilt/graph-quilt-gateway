@@ -1,0 +1,8 @@
+version: '3.2'
+
+services:
+  graphql-gateway:
+    build:
+      context: .
+    ports:
+      - 7000:7000
