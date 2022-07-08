@@ -17,7 +17,6 @@ various data providers.
 [graphql-gateway-documentation](https://intuit.github.io/graphql-orchestrator-java/) <br/>
 
 
-
 ### Pre-requisites
 
 Make sure you have the following installed on your machine
