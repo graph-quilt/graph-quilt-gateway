@@ -1,0 +1,21 @@
+name: 'Test Report'
+
+on:
+  workflow_run:
+    # runs after CI workflow
+    workflows: ['CI']                     
+    types:
+      - completed
+
+jobs:
+  report: 
+    runs-on: ubuntu-latest  
+    steps:
+      - uses: dorny/test-reporter@v1
+        if: always()
+        with:
+          name: Maven Tests
+          path: target/surefire-reports/*.xml
+          reporter: java-junit
+          fail-on-error: true
+          token: ${{ secrets.GITHUB_TOKEN }}
