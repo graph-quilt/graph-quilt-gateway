@@ -2,10 +2,8 @@ name: 'Test Report'
 
 on:
   workflow_run:
-    # runs after CI workflow
-    workflows: ['CI']                     
-    types:
-      - completed
+    workflows: [CI]                     
+    types: [completed]
 
 jobs:
   report: 
@@ -15,7 +13,7 @@ jobs:
         with:
           artifact: test-results
           name: Maven Tests
-          path: target/surefire-reports/*.xml
+          path: "*.xml"
           reporter: java-junit
           fail-on-error: true
           token: ${{ secrets.GITHUB_TOKEN }}
