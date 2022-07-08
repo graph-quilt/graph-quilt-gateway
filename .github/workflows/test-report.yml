@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest  
     steps:
       - uses: dorny/test-reporter@v1
-        if: always()
         with:
+          artifact: test-results
           name: Maven Tests
           path: target/surefire-reports/*.xml
           reporter: java-junit
