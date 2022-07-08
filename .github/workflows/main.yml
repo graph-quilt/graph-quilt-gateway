@@ -42,7 +42,7 @@ jobs:
           path: target/surefire-reports/*.xml
           reporter: java-junit
           fail-on-error: true
-          token: ${{ secrets.REPO_GIT_TOKEN }}
+          token: ${{ secrets.GITHUB_TOKEN }}
           
 
       - name: Publish Snapshot to OSS Maven Repository
