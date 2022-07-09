@@ -3,9 +3,9 @@
   ![graphql-gateway](./logo.png)
 
 </div>
-[![Build Status](https://github.com/intuit/graphql-gateway-java/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/intuit/graphql-gateway-java/actions/workflows/main.yml) <br/>
-[![Continuous Integration](https://github.com/intuit/graphql-gateway-java/actions/workflows/test-report.yml/badge.svg?branch=master)](https://github.com/intuit/graphql-gateway-java/actions/workflows/test-report.yml) <br/>
 
+**Build Status:**  [![GraphQL Gateway Maven Action](https://github.com/intuit/graphql-gateway-java/actions/workflows/main.yml/badge.svg?branch=master&event=push)](https://github.com/intuit/graphql-gateway-java/actions/workflows/main.yml) <br/>
+**Continuous Integration:** [![CI](https://github.com/intuit/graphql-gateway-java/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/intuit/graphql-gateway-java/actions/workflows/ci.yml) <br/>
 **License:** [![Apache 2](http://img.shields.io/badge/license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0) <br/>
 
 ### Overview
