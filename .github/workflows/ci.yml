@@ -1,10 +1,9 @@
-# This workflow will build a package using Maven and then publish it to GitHub packages when a release is created
-# For more information see: https://github.com/actions/setup-java/blob/main/docs/advanced-usage.md#apache-maven-with-a-settings-path
+# This workflow will build a PR using Maven and then upload the test results
 
 name: CI
 on:
   push:
-    branches: [ master ]
+    branches: [ '!master' ]
   pull_request:
     branches: [ master ]
   
@@ -23,11 +22,7 @@ jobs:
           server-password: MAVEN_PASSWORD
 
       - name: Build with Maven
-        if: ${{ github.ref != 'refs/heads/master' }}
-        run: mvn -B -DskipTests package --file pom.xml
-        
-      - name: Run Tests
-        run: mvn --batch-mode -Dmaven.test.failure.ignore=true test
+        run: mvn -B verify --file pom.xml
       - uses: actions/upload-artifact@v2  # upload test results
         if: success() || failure()        # run this step even if previous step failed
         with:
