@@ -5,7 +5,7 @@
 </div>
 
 [![ Master Build and Publish](https://github.com/graph-quilt/graphql-gateway-java/actions/workflows/master.yml/badge.svg?branch=master&event=push)](https://github.com/graph-quilt/graphql-gateway-java/actions/workflows/master.yml)
-[![codecov](https://codecov.io/gh/intuit/graphql-gateway-java/branch/master/graph/badge.svg?token=G392PV1BAI)](https://codecov.io/gh/intuit/graphql-gateway-java) 
+[![codecov](https://codecov.io/gh/graph-quilt/graphql-gateway-java/branch/master/graph/badge.svg?token=G392PV1BAI)](https://codecov.io/gh/graph-quilt/graphql-gateway-java) 
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ### Overview
