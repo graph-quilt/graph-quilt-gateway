@@ -4,18 +4,18 @@
 
 </div>
 
-[![ Master Build and Publish](https://github.com/intuit/graphql-gateway-java/actions/workflows/master.yml/badge.svg?branch=master&event=push)](https://github.com/intuit/graphql-gateway-java/actions/workflows/master.yml)
-[![codecov](https://codecov.io/gh/intuit/graphql-gateway-java/branch/master/graph/badge.svg?token=G392PV1BAI)](https://codecov.io/gh/intuit/graphql-gateway-java) 
+[![ Master Build and Publish](https://github.com/graph-quilt/graphql-gateway-java/actions/workflows/master.yml/badge.svg?branch=master&event=push)](https://github.com/graph-quilt/graphql-gateway-java/actions/workflows/master.yml)
+[![codecov](https://codecov.io/gh/graph-quilt/graphql-gateway-java/branch/master/graph/badge.svg?token=G392PV1BAI)](https://codecov.io/gh/graph-quilt/graphql-gateway-java) 
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
 ### Overview
 
 GraphQL Gateway exposes data from various graph microservices using a single unified GraphQL schema.
-It uses [graphql orchestrator library](https://github.com/intuit/graphql-orchestrator-java) for federating schemas from 
+It uses [graphql orchestrator library](https://github.com/graph-quilt/graphql-orchestrator-java) for federating schemas from 
 various data providers.  
 
 ### Documentation
-[graphql-gateway-documentation](https://intuit.github.io/graphql-orchestrator-java/) <br/>
+[graphql-gateway-documentation](https://graph-quilt.github.io/graphql-orchestrator-java/) <br/>
 
 
 ### Pre-requisites
