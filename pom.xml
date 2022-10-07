@@ -18,7 +18,7 @@
     <java.version>1.8</java.version>
     <jacoco.version>0.8.4</jacoco.version>
     <graphql-orchestrator.version>4.0.9</graphql-orchestrator.version>
-    <rest-adapter.version>1.0.16</rest-adapter.version>
+    <rest-adapter.version>2.0.3-SNAPSHOT</rest-adapter.version>
     <log4j2.version>2.17.0</log4j2.version>
   </properties>
 
@@ -187,6 +187,11 @@
       <groupId>javax.ws.rs</groupId>
       <artifactId>javax.ws.rs-api</artifactId>
       <version>2.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>com.intuit.graphql.adapter</groupId>
+      <artifactId>rest-adapter</artifactId>
+      <version>${rest-adapter.version}</version>
     </dependency>
   </dependencies>
 

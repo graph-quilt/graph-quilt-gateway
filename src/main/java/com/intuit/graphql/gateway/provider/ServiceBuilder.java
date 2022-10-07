@@ -4,10 +4,7 @@ import com.intuit.graphql.gateway.logging.EventLogger;
 import com.intuit.graphql.gateway.logging.interfaces.ImmutableLogNameValuePair;
 import com.intuit.graphql.gateway.logging.interfaces.LogNameValuePair;
 import com.intuit.graphql.gateway.logging.interfaces.TransactionContext;
-import com.intuit.graphql.gateway.registry.SdlServiceRegistration;
-import com.intuit.graphql.gateway.registry.ServiceDefinition;
-import com.intuit.graphql.gateway.registry.ServiceRegistration;
-import com.intuit.graphql.gateway.registry.ServiceRegistrationException;
+import com.intuit.graphql.gateway.registry.*;
 import com.intuit.graphql.orchestrator.ServiceProvider;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
@@ -58,6 +55,8 @@ public class ServiceBuilder {
 
     if (serviceRegistration instanceof SdlServiceRegistration) {
       return new SdlServiceProvider((SdlServiceRegistration) serviceRegistration, webClient);
+    } else if (serviceRegistration instanceof RestServiceRegistration) {
+      return new RestServiceProvider((RestServiceRegistration) serviceRegistration, webClient);
     } else {
       return new IntrospectionServiceProvider(tx, webClient, serviceRegistration);
     }
