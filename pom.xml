@@ -4,7 +4,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>2.4.8</version>
+    <version>2.6.12</version>
     <relativePath /> <!-- lookup parent from repository -->
   </parent>
 
@@ -43,8 +43,8 @@
     <!--	SpringBoot 2.4.8 does not load bootstrap.yml by default-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-bootstrap</artifactId>
-      <version>3.0.3</version>
+          <artifactId>spring-cloud-starter-bootstrap</artifactId>
+      <version>3.1.4</version>
       <exclusions>
         <exclusion>
           <artifactId>bcpkix-jdk15on</artifactId>
@@ -85,17 +85,17 @@
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-databind</artifactId>
-      <version>2.10.2</version>
+      <version>2.13.4</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.core</groupId>
       <artifactId>jackson-core</artifactId>
-      <version>2.10.2</version>
+      <version>2.13.4</version>
     </dependency>
     <dependency>
       <groupId>com.fasterxml.jackson.dataformat</groupId>
       <artifactId>jackson-dataformat-yaml</artifactId>
-      <version>2.10.2</version>
+      <version>2.13.4</version>
     </dependency>
 
     <dependency>

@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.when;
 
 import com.intuit.graphql.gateway.logging.interfaces.TransactionContext;
+import com.intuit.graphql.gateway.webclient.TxProvider;
 import graphql.GraphQLContext;
 import graphql.execution.instrumentation.parameters.InstrumentationFieldFetchParameters;
 import graphql.language.Field;
@@ -52,13 +53,12 @@ public class IntrospectionInstrumentationTest {
 
   @Before
   public void setup() {
-
     when(queryTypeMock.getName()).thenReturn("Query");
 
     when(graphQLSchemaMock.getQueryType()).thenReturn(queryTypeMock);
 
     when(graphQLContextMock.get(Context.class)).thenReturn(contextMock);
-    when(contextMock.get(TransactionContext.class)).thenReturn(transactionContextMock);
+    when(contextMock.get(TransactionContext.class)).thenReturn(TxProvider.emptyTx());
 
     when(dataFetchingEnvironmentMock.getContext()).thenReturn(graphQLContextMock);
     when(dataFetchingEnvironmentMock.getGraphQLSchema()).thenReturn(graphQLSchemaMock);
