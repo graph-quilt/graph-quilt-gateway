@@ -17,6 +17,8 @@ function show_usage () {
 
 VM_ARGS=""
 
+JAR_FILE_LOCATION="target/graphql-gateway-java.jar"
+
 # Arg parsing
 while [[ "$1" != "" ]]; do
     arg="${1}"
@@ -27,6 +29,10 @@ while [[ "$1" != "" ]]; do
             ;;
         --s3-disabled )
             VM_ARGS="$VM_ARGS -Daws.s3.enabled=false"
+            shift
+            ;;
+        --containerized )
+            JAR_FILE_LOCATION="graphql-gateway-java.jar"
             shift
             ;;
         -D* )
@@ -41,4 +47,6 @@ while [[ "$1" != "" ]]; do
     esac
 done
 
-java -Dspring.profiles.active=local -Dserver.max-http-header-size=17000 ${VM_ARGS} -jar target/graphql-gateway-java.jar
+sleep 30
+
+java -Dspring.profiles.active=local -Dserver.max-http-header-size=17000 ${VM_ARGS} -jar $JAR_FILE_LOCATION

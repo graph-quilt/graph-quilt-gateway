@@ -323,7 +323,7 @@
             </file>
         </activation>
         <properties>
-            <docker.image.name>graphql-gateway</docker.image.name>
+            <docker.image.name>graphql-gateway-java</docker.image.name>
             <docker.image.label>latest</docker.image.label>
         </properties>
         <build>
@@ -367,7 +367,7 @@
                                 <images>
                                     <image>
                                         <alias>service image</alias>
-                                        <name>${docker.image.name}:${project.version}-${buildNumber}</name>
+                                        <name>${docker.image.name}:version-${project.version}</name>
                                         <build>
                                             <contextDir>${project.basedir}</contextDir>
                                             <dockerFile>Dockerfile</dockerFile>
@@ -382,26 +382,26 @@
                                 </images>
                             </configuration>
                         </execution>
-                        <execution>
-                            <id>Push image</id>
-                            <phase>deploy</phase>
-                            <goals>
-                                <goal>push</goal>
-                            </goals>
-                            <configuration>
-                                <images>
-                                    <image>
-                                        <alias>service image</alias>
-                                        <name>${docker.image.name}:${pom.artifact.version}</name>
-                                        <build>
-                                            <tags>
-                                                <tag>${docker.image.label}</tag>
-                                            </tags>
-                                        </build>
-                                    </image>
-                                </images>
-                            </configuration>
-                        </execution>
+<!--                        <execution>-->
+<!--                            <id>Push image</id>-->
+<!--                            <phase>deploy</phase>-->
+<!--                            <goals>-->
+<!--                                <goal>push</goal>-->
+<!--                            </goals>-->
+<!--                            <configuration>-->
+<!--                                <images>-->
+<!--                                    <image>-->
+<!--                                        <alias>service image</alias>-->
+<!--                                        <name>${docker.image.name}:${pom.artifact.version}</name>-->
+<!--                                        <build>-->
+<!--                                            <tags>-->
+<!--                                                <tag>${docker.image.label}</tag>-->
+<!--                                            </tags>-->
+<!--                                        </build>-->
+<!--                                    </image>-->
+<!--                                </images>-->
+<!--                            </configuration>-->
+<!--                        </execution>-->
                     </executions>
                 </plugin>
             </plugins>
