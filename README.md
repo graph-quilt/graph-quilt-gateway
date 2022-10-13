@@ -72,7 +72,7 @@ The docker compose will start both **localstack** and **graphql gateway**.  To s
 
 `$ docker compose up`
 
-You see the Spring Boot Logo and a message "Started GraphQLGatewayApplication ..."
+You should see the Spring Boot Logo and a message "Started GraphQLGatewayApplication ..."
   
 ### Test using GraphiQL
 
