@@ -65,7 +65,14 @@ and configure credentials and region (any string value is fine).
 
 * After making any updates to the providers in the `local_registry`, just re-run the correct `setup.sh`. 
 **No need to restart the application**.
-  
+
+### Run with docker compose
+
+The docker compose will start both **localstack** and **graphql gateway**.  To start, run the command
+
+`$ docker compose up`
+
+You should see the Spring Boot Logo and a message "Started GraphQLGatewayApplication ..."
   
 ### Test using GraphiQL
 
