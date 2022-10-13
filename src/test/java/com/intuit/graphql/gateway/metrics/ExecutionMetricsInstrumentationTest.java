@@ -12,6 +12,7 @@ import static org.mockito.Mockito.when;
 import com.intuit.graphql.gateway.logging.interfaces.TransactionContext;
 import com.intuit.graphql.gateway.metrics.ExecutionMetrics.ExecutionMetricsData;
 import com.intuit.graphql.gateway.metrics.ExecutionMetricsInstrumentation.ExecutionMetricsInstrumentationState;
+import com.intuit.graphql.gateway.webclient.TxProvider;
 import graphql.ExecutionResult;
 import graphql.GraphQLContext;
 import graphql.execution.ExecutionContext;
@@ -28,9 +29,6 @@ import reactor.util.context.Context;
 
 @RunWith(MockitoJUnitRunner.class)
 public class ExecutionMetricsInstrumentationTest {
-
-  @Mock
-  TransactionContext txMock;
 
   @Mock
   Context contextMock;
@@ -71,7 +69,7 @@ public class ExecutionMetricsInstrumentationTest {
 
   @Test
   public void instrumentExecutionResult_success() {
-    when(contextMock.getOrEmpty(TransactionContext.class)).thenReturn(Optional.of(txMock));
+    when(contextMock.getOrEmpty(TransactionContext.class)).thenReturn(Optional.of(TxProvider.emptyTx()));
     when(graphQLContextMock.getOrEmpty(Context.class)).thenReturn(Optional.of(contextMock));
     ExecutionResult executionResultMock = mock(ExecutionResult.class);
     when(instrumentationExecutionParametersMock.getContext()).thenReturn(graphQLContextMock);

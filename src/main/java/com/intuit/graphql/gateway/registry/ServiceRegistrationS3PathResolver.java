@@ -21,6 +21,8 @@ public class ServiceRegistrationS3PathResolver {
   public ServiceRegistration resolve(ServiceRegistration serviceRegistration) {
     if (serviceRegistration instanceof SdlServiceRegistration) {
       return resolve((SdlServiceRegistration) serviceRegistration);
+    } else if (serviceRegistration instanceof RestServiceRegistration) {
+      return resolve((RestServiceRegistration) serviceRegistration);
     } else {
       return serviceRegistration;
     }
@@ -36,6 +38,20 @@ public class ServiceRegistrationS3PathResolver {
         .serviceDefinition(sdlServiceRegistration.getServiceDefinition())
         .graphqlResources(newGraphQLResources)
         .build();
+  }
+
+  private ServiceRegistration resolve(RestServiceRegistration restServiceRegistration) {
+    String appId = restServiceRegistration.getServiceDefinition().getAppId();
+
+    Map<String, String> newGraphQLResources = resolveResourcePaths(restServiceRegistration.getGraphqlResources(), appId);
+    Map<String, String> newFlowResources = resolveResourcePaths(restServiceRegistration.getFlowResources(), appId);
+
+    return RestServiceRegistration.builder()
+        .flowResources(newFlowResources)
+        .graphqlResources(newGraphQLResources)
+        .serviceDefinition(restServiceRegistration.getServiceDefinition())
+        .build();
+
   }
 
   private Map<String, String> resolveResourcePaths(Map<String, String> inputResourceMap, String appId) {

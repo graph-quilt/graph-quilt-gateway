@@ -75,6 +75,12 @@ public class ServiceRegistrationUtil {
       Map<String, String> flowResources, Map<String, String> graphqlsResources) {
 
     switch (serviceDefinition.getType()) {
+      case REST:
+        return RestServiceRegistration.builder()
+            .flowResources(flowResources)
+            .graphqlResources(graphqlsResources)
+            .serviceDefinition(serviceDefinition)
+            .build();
       case GRAPHQL_SDL:
         return SdlServiceRegistration.builder()
             .graphqlResources(graphqlsResources)
