@@ -10,13 +10,15 @@
 
 ### Overview
 
-GraphQL Gateway exposes data from various graph microservices using a single unified GraphQL schema.
-It uses [graphql orchestrator library](https://github.com/graph-quilt/graphql-orchestrator-java) for federating schemas from 
-various data providers.  
+Graph Quilt Gateway exposes data from various graph microservices using a single unified GraphQL schema. These microservices can be dynamically
+registered with the Gateway using the `/register` endpoint. It uses [graphql orchestrator library](https://github.com/graph-quilt/graphql-orchestrator-java) for federating schemas from 
+various data providers. 
 
-### Documentation
-[graphql-gateway-documentation](https://graph-quilt.github.io/graphql-orchestrator-java/) <br/>
+Top Highlights include
 
+* Dynamic registration so that the gateway is loosely coupled with the provider development lifecycle.
+* Registering REST endpoints using the @adapter directive and Service DSL
+* Attribute Based Access Control using the [graphql-authorization-java](https://github.com/graph-quilt/graphql-authorization-java) library.
 
 ### Pre-requisites
 
@@ -27,7 +29,7 @@ Make sure you have the following installed on your machine
 * docker
 * awscli - _make sure you have configured a value(any string value is fine) for keyid, key and region._
 
-### Local Development
+### Running the graph-quilt gateway locally
 
 * Install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2-mac.html#cliv2-mac-install-cmd) 
 and configure credentials and region (any string value is fine).
@@ -35,7 +37,7 @@ and configure credentials and region (any string value is fine).
     aws configure
     ```
     
-* Start up the registry
+* Start up the local registry
     ```
     ./local_registry/start.sh
     ```
@@ -76,7 +78,11 @@ You should see the Spring Boot Logo and a message "Started GraphQLGatewayApplica
   
 ### Test using GraphiQL
 
-* Navigate to [http://localhost:7000/graphiql](http://localhost:7000/graphiql) 
+* Navigate to [http://localhost:7000/graphiql](http://localhost:7000/graphiql)
+
+### Documentation
+[graphql-gateway-documentation](https://graph-quilt.github.io/graphql-orchestrator-java/) <br/>
+
 
 ### Intellij development
 
