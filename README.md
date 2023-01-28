@@ -17,7 +17,7 @@ various data providers.
 Top Highlights include
 
 * Dynamic registration so that the gateway is loosely coupled with the provider development lifecycle.
-* Registering REST endpoints using the @adapter directive and Service DSL
+* Registering REST endpoints using the [@adapter](https://github.com/graph-quilt/graphql-service-adapters) directive and Service DSL
 * Attribute Based Access Control using the [graphql-authorization-java](https://github.com/graph-quilt/graphql-authorization-java) library.
 
 ### Pre-requisites
