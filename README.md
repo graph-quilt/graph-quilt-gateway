@@ -8,7 +8,7 @@
 [![codecov](https://codecov.io/gh/graph-quilt/graphql-gateway-java/branch/master/graph/badge.svg?token=G392PV1BAI)](https://codecov.io/gh/graph-quilt/graphql-gateway-java) 
 [![Apache 2](http://img.shields.io/badge/license-Apache%202-brightgreen.svg)](http://www.apache.org/licenses/LICENSE-2.0)
 
-This repo is deprecated.  Please see [graphql-gateway-java](https://github.com/graph-quilt/graphql-gateway-java)
+## This repo is deprecated.  Please see [graphql-gateway-java](https://github.com/graph-quilt/graphql-gateway-java)
 
 ### Overview
 
