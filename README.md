@@ -75,6 +75,10 @@ The docker compose will start both **localstack** and **graphql gateway**.  To s
 
 `$ docker compose -f docker-compose-local-registry.yml up`
 
+This will start with the example service providers from [./local_registry/dev/registrations/1.0.0](./local_registry/dev/registrations/1.0.0).  However,
+there's no actual backend service yet so if you query, you'll get "Connection Refused error.".  We will add these example services
+as part of docker compose in the near future so that and end to end call can be made.  
+
 You should see the Spring Boot Logo and a message "Started GraphQLGatewayApplication ..."
   
 ### Test using GraphiQL
