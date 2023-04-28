@@ -56,7 +56,7 @@ public class RuntimeGraphBuilder {
           .map(serviceRegistration -> serviceBuilder.buildService(tx, serviceRegistration))
           .sequential()
           .onErrorContinue(Predicates.isSkippableRegistrationError(s3Registration), (t, o) -> EventLogger.error(log, tx, "Ignoring provider", t))
-          .reduce(SchemaStitcher.newBuilder(), SchemaStitcher.Builder::service)
+          .reduce(SchemaStitcher.newBuilder(), (builder, serviceProvider) -> builder.service(serviceProvider))
           .map(builder -> builder.batchLoaderHooks(batchLoaderExecutionHooks)
               .build()
               .stitchGraph()

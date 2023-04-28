@@ -6,7 +6,7 @@ import static com.intuit.graphql.gateway.registry.ServiceRegistrationUtil.isSame
 import com.intuit.graphql.gateway.graphql.RuntimeGraphBuilder;
 import com.intuit.graphql.gateway.graphql.SchemaManager;
 import com.intuit.graphql.gateway.handler.UnprocessableEntityException;
-import com.intuit.graphql.gateway.registry.SchemaDifferenceMetrics.SchemaDifferenceMetricsBuilder;
+import com.intuit.graphql.gateway.registry.SchemaDifferenceMetrics;
 import com.intuit.graphql.orchestrator.schema.RuntimeGraph;
 import graphql.schema.GraphQLSchema;
 import graphql.schema.diff.DiffSet;
@@ -66,7 +66,7 @@ public class SchemaValidationService {
   }
 
   private SchemaDifferenceMetrics getSchemaDifference(RuntimeGraph runtimeGraph, ServiceRegistration newSvcReg) {
-    SchemaDifferenceMetricsBuilder schemaDifferenceMetricsBuilder = SchemaDifferenceMetrics.builder()
+    SchemaDifferenceMetrics.SchemaDifferenceMetricsBuilder schemaDifferenceMetricsBuilder = SchemaDifferenceMetrics.builder()
         .serviceRegistration(newSvcReg);
     final GraphQLSchema oldSchema = schemaManager.getRuntimeGraph().getExecutableSchema();
     final GraphQLSchema newSchema = runtimeGraph.getExecutableSchema();

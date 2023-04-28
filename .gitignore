@@ -33,3 +33,5 @@ HELP.md
 conf/
 *.out
 lastEiamLogin.txt
+
+logs/
